@@ -1,0 +1,28 @@
+﻿<Window x:Class="Sample.Client.Shell.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:shell="clr-namespace:Sample.Client.Shell"
+        mc:Ignorable="d" 
+        d:DataContext="{d:DesignInstance shell:ShellViewModel}"
+        Title="Wpf Client" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <ItemsControl Grid.Row="0" ItemsSource="{Binding Path=FileItems}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl cal:View.Model="{Binding}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Content="Add file" Command="{Binding Path=AddFileCommand}" />
+            <Button Content="Upload files" Command="{Binding Path=UploadCommand}" />
+        </StackPanel>
+    </Grid>
+</Window>
