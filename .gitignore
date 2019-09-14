@@ -35,3 +35,4 @@ packages/
 LogoFX.Web.DAL.Entities/ImageDto.cs.orig
 
 Groopfie.Server.Owin/WebConnectionString.config
+/.vs
